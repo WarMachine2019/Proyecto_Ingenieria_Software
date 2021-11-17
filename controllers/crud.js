@@ -1,6 +1,7 @@
 //Invocamos a la conexion de la DB
 const conexion = require('../database/db');
 
+<<<<<<< HEAD
 var identidad=1;
 
 function internalVariable(select){
@@ -9,24 +10,36 @@ function internalVariable(select){
 
 
 
+=======
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 
 //GUARDAR un Evento
 exports.save = (req, res)=>{
     const user = req.body.user;
     const rol = req.body.rol;
+<<<<<<< HEAD
     console.log("se creo evento");
     /*conexion.query('INSERT INTO eventos SET ?',{fecha_inicio:fecha_inicio, fecha_final:fecha_final, nombre:nombre, institucion:institucion, descripcion:descripcion}, (error, results)=>{
+=======
+    conexion.query('INSERT INTO eventos SET ?',{fecha_inicio:fecha_inicio, fecha_final:fecha_final, nombre:nombre, institucion:institucion, descripcion:descripcion}, (error, results)=>{
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
         if(error){
             console.log(error);
         }else{
             //console.log(results);   
             res.redirect('principal');         
+<<<<<<< HEAD
         }*
 });*/
 };
 
 
 
+=======
+        }
+});
+};
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 //ACTUALIZAR un evento
 exports.update = (req, res)=>{
     const id = req.body.id;
@@ -34,6 +47,7 @@ exports.update = (req, res)=>{
     const fecha_final = req.body.fecha_final;
     const nombre = req.body.nombre;
     const institucion = req.body.institucion
+<<<<<<< HEAD
     conexion.query('UPDATE eventos SET ? WHERE id = ?',[{fecha_inicio:fecha_inicio, fecha_final:fecha_final, nombre:nombre, institucion:institucion, descripcion:descripcion}, identidad], (error, results)=>{
         if(error){
             console.log(error);
@@ -63,3 +77,13 @@ exports.update2 = (req, res)=>{
 };
 
 
+=======
+    conexion.query('UPDATE eventos SET ? WHERE id = ?',[{fecha_inicio:fecha_inicio, fecha_final:fecha_final, nombre:nombre, institucion:institucion, descripcion:descripcion}, id], (error, results)=>{
+        if(error){
+            console.log(error);
+        }else{           
+            res.redirect('principal');         
+        }
+});
+};
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36

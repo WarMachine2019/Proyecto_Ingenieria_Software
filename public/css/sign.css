@@ -3,11 +3,14 @@ body {
   height: 100%;
 }
 
+<<<<<<< HEAD
 .modalActualizarPerfil{
   width: 80%;
 }
 
 
+=======
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 body {
   display: flex;
   align-items: center;

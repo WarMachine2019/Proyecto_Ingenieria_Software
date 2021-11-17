@@ -1,4 +1,5 @@
 //1- Invocamos a express
+<<<<<<< HEAD
 
 const express = require('express');
 const app = express();
@@ -21,6 +22,11 @@ let alert = require('alert');
 app.set('view engine', 'ejs');
 
 
+=======
+const express = require('express');
+const app = express();
+const router = express.Router();
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 
 //2- seteamos urlencoded para capturar Los datos del formulario
 app.use(express.urlencoded({extended:false}));
@@ -38,7 +44,12 @@ dotenv.config({path:'./env/.env'});
 app.use('/resources', express.static('public'));
 app.use('/resources', express.static(__dirname + '/public'));
 
+<<<<<<< HEAD
 
+=======
+//5 - Establecemos el motor de plantillas ejs
+app.set('view engine', 'ejs');
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 
 
 //6- Invocamos a bcryptjs
@@ -54,7 +65,10 @@ app.use(session({
 
 //8- Invocamos al módulo de conexion de la BD
 const connection = require('./database/db');
+<<<<<<< HEAD
 const { ExpressHandlebars } = require('express-handlebars');
+=======
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 
 //9- Estableciendo las rutas
 app.get('/', (req, res)=>{
@@ -64,9 +78,12 @@ app.get('/', (req, res)=>{
 app.get('/login', (req, res)=>{
     res.render('login');
 })
+<<<<<<< HEAD
 
 app.use('/',require('./router'));
 
+=======
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 app.get('/register', (req, res)=>{
     res.render('register');
 })
@@ -93,16 +110,22 @@ app.post('/register', async (req, res) =>{
                 timer:1500,
                 ruta:''
             })
+<<<<<<< HEAD
 
+=======
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
         }
     })
 })
 
+<<<<<<< HEAD
 var identidad=0;
 let apellido2="";
 let institucion2="";
 let correo2="";
 let nombre="";
+=======
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 
 //11- Autenticación
 app.post('/auth', async(req, res)=>{
@@ -123,6 +146,7 @@ app.post('/auth', async(req, res)=>{
                 });
             }else{
                 req.session.loggedin = true;
+<<<<<<< HEAD
                 nombre = results[0].nombre;
                 req.session.id = results[0].id;
                 apellido2 = results[0].apellido;
@@ -132,6 +156,9 @@ app.post('/auth', async(req, res)=>{
                 identidad=results[0].id;
                 fs.writeFileSync(path.join(__dirname,'./upload/'+ results[0].id+".jpg"),results[0].foto);
                 fs.writeFileSync(path.join(__dirname,'./upload/temporal.jpg'),results[0].foto);
+=======
+                req.session.nombre = results[0].nombre;
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
                 res.render('login', {
                     alert:true,
                     alertTitle:"Conexión exitosa",
@@ -162,6 +189,7 @@ app.get('/principal',(req, res)=> {
     if(req.session.loggedin){
         res.render('main',{
             login:true,
+<<<<<<< HEAD
             nombre: nombre,
             id: identidad,
             correo:correo2,
@@ -175,6 +203,14 @@ app.get('/principal',(req, res)=> {
             login:false,
             nombre:'Debe iniciar sesión'
             
+=======
+            nombre: req.session.nombre
+        });
+    }else{
+        res.render('main',{
+            login:false,
+            nombre:'Debe iniciar sesión',
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
         })
     }
 })
@@ -192,6 +228,7 @@ app.use(function(req, res, next) {
 app.get('/logout', function (req, res) {
 	req.session.destroy(() => {
 	  res.redirect('/') // siempre se ejecutará después de que se destruya la sesión
+<<<<<<< HEAD
       const fs = require('fs')
 
 try {
@@ -388,11 +425,20 @@ app.post('/update2', (req, res)=>{
 });
 
 
+=======
+	})
+});
+
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000')
 })
 
+<<<<<<< HEAD
 
 
 
+=======
+module.exports = router
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36

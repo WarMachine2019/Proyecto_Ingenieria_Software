@@ -22,7 +22,10 @@ const crud = require('./controllers/crud');
 
 router.post('/save', crud.save);
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> cc5d51c01a5464d3f8eef25db2922021878f8a36
 module.exports = router;
